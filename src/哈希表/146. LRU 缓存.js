@@ -15,7 +15,10 @@
 /**
  * @param {number} capacity
  */
-var LRUCache = function (capacity) {};
+var LRUCache = function (capacity) {
+  this.map = new Map();
+  this.capacity = capacity;
+};
 
 /**
  * @param {number} key
@@ -39,9 +42,8 @@ LRUCache.prototype.put = function (key, value) {};
 
 // 测试用例
 
-["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
-[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+['LRUCache', 'put', 'put', 'get', 'put', 'get', 'put', 'get', 'get', 'get'][([2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4])];
 // [null, null, null, 1, null, -1, null, -1, 3, 4]
-console.time("执行用时");
+console.time('执行用时');
 console.log(LRUCache());
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');

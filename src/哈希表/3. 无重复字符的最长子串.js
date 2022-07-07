@@ -30,38 +30,38 @@ var lengthOfLongestSubstring = function (s) {
 
 // 测试用例
 
-let s = "abcabcbb";
+let s = 'abcabcbb';
 // 3
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-s = "bbbbb";
+s = 'bbbbb';
 // 1
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-s = "pwwkew";
+s = 'pwwkew';
 // 3
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-s = "";
+s = '';
 // 0
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-s = "aab";
+s = 'aab';
 // 2
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-s = "dvdf";
+s = 'dvdf';
 // 3
-console.time("执行用时");
+console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');

@@ -13,43 +13,31 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-  if (digits === "") {
+  if (digits === '') {
     return [];
   }
   const len = digits.length;
-  const map = {
-    2: "abc",
-    3: "def",
-    4: "ghi",
-    5: "jkl",
-    6: "mno",
-    7: "pqrs",
-    8: "tuv",
-    9: "wxyz",
-  };
+  const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' };
   if (len === 1) {
-    return map[digits].split("");
+    return map[digits].split('');
   }
-  const res = []; // 用来存储组合
+  const res = []; // 用来存储字母组合
   const path = []; // 用来存储路径
-  backtrack(digits, 0);
+  backtrack(0);
   return res;
   // 回溯函数
-  function backtrack(digits, i) {
+  function backtrack(i) {
     // 终止条件
     if (path.length === len) {
-      res.push(path.join(""));
+      res.push(path.join(''));
       return;
     }
     if (map[digits[i]]) {
       // 遍历
       for (const k of map[digits[i]]) {
-        // 标记
-        path.push(k);
-        // 递归
-        backtrack(digits, i + 1);
-        // 撤回标记
-        path.pop();
+        path.push(k); // 标记
+        backtrack(i + 1); // 递归
+        path.pop(); // 撤回标记
       }
     }
   }
@@ -57,20 +45,20 @@ var letterCombinations = function (digits) {
 
 // 测试用例
 
-let digits = "23";
+let digits = '23';
 // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-console.time("执行用时");
+console.time('执行用时');
 console.log(letterCombinations(digits));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-digits = "";
+digits = '';
 // []
-console.time("执行用时");
+console.time('执行用时');
 console.log(letterCombinations(digits));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
 
-digits = "2";
+digits = '2';
 // ["a","b","c"]
-console.time("执行用时");
+console.time('执行用时');
 console.log(letterCombinations(digits));
-console.timeEnd("执行用时");
+console.timeEnd('执行用时');
