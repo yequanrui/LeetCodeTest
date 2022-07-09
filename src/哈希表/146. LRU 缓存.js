@@ -1,7 +1,8 @@
 /**
- * 题目：LRU 缓存
+ * 题目：146. LRU 缓存
  * 来源：https://leetcode.cn/problems/lru-cache
  * 难度：中等
+ * 知识点：哈希表
  * 描述：请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
         实现 LRUCache 类：
         LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存

@@ -1,7 +1,8 @@
 /**
- * 题目：无重复字符的最长子串
+ * 题目：3. 无重复字符的最长子串
  * 来源：https://leetcode.cn/problems/longest-substring-without-repeating-characters
  * 难度：中等
+ * 知识点：哈希表、滑窗
  * 描述：给定一个字符串s，请你找出其中不含有重复字符的最长子串的长度。
  */
 
@@ -30,7 +31,7 @@ var lengthOfLongestSubstring = function (s) {
 
 // 测试用例
 
-let s = 'abcabcbb';
+s = 'abcabcbb';
 // 3
 console.time('执行用时');
 console.log(lengthOfLongestSubstring(s));

@@ -1,7 +1,8 @@
 /**
- * 题目：电话号码的字母组合
+ * 题目：17. 电话号码的字母组合
  * 来源：https://leetcode.cn/problems/letter-combinations-of-a-phone-number
  * 难度：中等
+ * 知识点：哈希表、回溯
  * 描述：给定一个仅包含数字2-9的字符串，返回所有它能表示的字母组合。
  *      答案可以按任意顺序返回。给出数字到字母的映射如下（与电话按键相同）。注意1不对应任何字母。
  */
@@ -17,6 +18,7 @@ var letterCombinations = function (digits) {
     return [];
   }
   const len = digits.length;
+  // 建立数字和字母的关系表
   const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' };
   if (len === 1) {
     return map[digits].split('');
@@ -45,7 +47,7 @@ var letterCombinations = function (digits) {
 
 // 测试用例
 
-let digits = '23';
+digits = '23';
 // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 console.time('执行用时');
 console.log(letterCombinations(digits));
