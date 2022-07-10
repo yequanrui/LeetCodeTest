@@ -2,7 +2,7 @@
  * 题目：3. 无重复字符的最长子串
  * 来源：https://leetcode.cn/problems/longest-substring-without-repeating-characters
  * 难度：中等
- * 知识点：哈希表、滑窗
+ * 知识点：哈希表、字符串、滑动窗口
  * 描述：给定一个字符串s，请你找出其中不含有重复字符的最长子串的长度。
  */
 

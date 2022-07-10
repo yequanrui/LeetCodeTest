@@ -2,7 +2,7 @@
  * 题目：146. LRU 缓存
  * 来源：https://leetcode.cn/problems/lru-cache
  * 难度：中等
- * 知识点：哈希表
+ * 知识点：设计、哈希表、链表、双向链表
  * 描述：请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
         实现 LRUCache 类：
         LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
@@ -25,14 +25,27 @@ var LRUCache = function (capacity) {
  * @param {number} key
  * @return {number}
  */
-LRUCache.prototype.get = function (key) {};
+LRUCache.prototype.get = function (key) {
+  if (this.map.has(key)) {
+    const value = this.map.get(key);
+    this.map.delete(key);
+    this.map.set(key, value);
+    return value;
+  } else {
+    return -1;
+  }
+};
 
 /**
  * @param {number} key
  * @param {number} value
  * @return {void}
  */
-LRUCache.prototype.put = function (key, value) {};
+LRUCache.prototype.put = function (key, value) {
+  this.map.has(key) && this.map.delete(key);
+  this.map.set(key, value);
+  this.map.size > this.capacity && this.map.delete(this.map.keys().next().value);
+};
 
 /**
  * Your LRUCache object will be instantiated and called as such:
@@ -43,8 +56,20 @@ LRUCache.prototype.put = function (key, value) {};
 
 // 测试用例
 
-['LRUCache', 'put', 'put', 'get', 'put', 'get', 'put', 'get', 'get', 'get'][([2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4])];
+// ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+// [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
 // [null, null, null, 1, null, -1, null, -1, 3, 4]
 console.time('执行用时');
-console.log(LRUCache());
+let lRUCache = new LRUCache(2);
+console.log(
+  lRUCache.put(1, 1), // 缓存是 {1=1}
+  lRUCache.put(2, 2), // 缓存是 {1=1, 2=2}
+  lRUCache.get(1), // 返回 1
+  lRUCache.put(3, 3), // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+  lRUCache.get(2), // 返回 -1 (未找到)
+  lRUCache.put(4, 4), // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
+  lRUCache.get(1), // 返回 -1 (未找到)
+  lRUCache.get(3), // 返回 3
+  lRUCache.get(4) // 返回 4
+);
 console.timeEnd('执行用时');
